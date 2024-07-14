@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 model = pickle.load(open('prediksi_Tanggapan.pkl', 'rb'))
 vectorizer = pickle.load(open('tf_idf_vectorizer.pkl', 'rb'))
 
-st.title("Memprediksi Ranggapan?")
+st.title("Prediksi Sentiment Review Film dalam bahasa inggris")
 
 # Input text 
 komen = st.text_area("Masukkan Teks yang ingin di uji", height=400)
@@ -24,6 +24,6 @@ if st.button('Predict'):
         predict_komen = model.predict(komen_transformed)
 
         if predict_komen == 1:
-            st.success("Teks yang anda masukkan termasuk ke dalam : Tanggapan Positive")
+            st.success("Teks yang anda masukkan termasuk ke dalam : Review Positive")
         else:
-            st.warning("Teks yang anda masukkan termasuk ke dalam : Tanggapan Negative")
+            st.warning("Teks yang anda masukkan termasuk ke dalam : Review Negative")
